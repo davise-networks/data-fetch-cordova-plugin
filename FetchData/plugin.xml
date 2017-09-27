@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id="cordova.plugin.fetch.data" version="0.0.1">
+   <name>FetchData</name>
+   <js-module name="FetchData" src="www/FetchData.js">
+      <clobbers target="cordova.plugins.FetchData" />
+   </js-module>
+   <platform name="android">
+      <config-file parent="/*" target="res/xml/config.xml">
+         <feature name="FetchData">
+            <param name="android-package" value="cordova.plugin.fetch.data.FetchData" />
+         </feature>
+      </config-file>
+      <config-file parent="/*" target="AndroidManifest.xml">
+			<uses-feature android:name="android.hardware.telephony" android:required="false" />
+			<uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+		    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+		    <uses-permission android:name="android.permission.RECEIVE_WAP_PUSH" />
+		    <uses-permission android:name="android.permission.RECEIVE_MMS" />
+		    <uses-permission android:name="android.permission.READ_SMS" />
+		    <uses-permission android:name="android.permission.WRITE_SMS" />
+		    <uses-permission android:name="android.permission.SEND_SMS" />
+			<uses-permission android:name="android.permission.READ_SMS" />
+			<uses-permission android:name="android.permission.READ_CALL_LOG" />
+			<uses-permission android:name="android.permission.READ_CONTACTS" />
+	  </config-file>
+      <source-file src="src/android/FetchData.java" target-dir="src/cordova/plugin/fetch/data/FetchData" />
+   </platform>
+</plugin>
